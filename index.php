@@ -21,6 +21,7 @@
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin',
+        CURLOPT_Post => 1,
         CURLOPT_POSTFIELDS => "sid=holl4332&pin=1234"
     ));
     // Send the request & save response to $resp
