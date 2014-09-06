@@ -26,7 +26,8 @@
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($curl, CURLOPT_COOKIEJAR, "cookie.txt");
       curl_setopt($curl, CURLOPT_COOKIEFILE, "cookie.txt");
-      curl_setopt($curl, CURLOPT_POSTLINES, "sid=holl4332&PIN=21797721");
+      curl_setopt($curl, CURLOPT_POST, 2);
+      curl_setopt($curl, CURLOPT_POSTFIELDS, "sid=holl4332&PIN=21797721");
       
       // Send the request & save response to $resp
 
