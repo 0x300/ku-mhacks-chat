@@ -66,6 +66,8 @@
     function displayChatMessage(name, text, tab)
     {
       $("<div/>").text(text).prepend($("<em/>").text(name + ": ")).appendTo($("#" + tab));
+      var d = $("#" + $(".ui-state-active").attr("aria-controls"));
+      d.scrollTop(d.prop("scrollHeight"));
     }
 
     //This will change based on user who is logged in
