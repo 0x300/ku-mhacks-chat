@@ -20,7 +20,7 @@
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_URL => 'https://jweb.kettering.edu/cku1/twbkwbis.P_WWWLogin',
+        CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_WWWLogin',
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => "sid=holl4332&PIN=1234"
     ));
