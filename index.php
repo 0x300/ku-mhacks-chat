@@ -25,7 +25,7 @@
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
     curl_setopt($curl, CURLOPT_POST, 2);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, "sid=holl4332&PIN=123456789");
+    curl_setopt($curl, CURLOPT_POSTFIELDS, "TESTID=set&sid=holl4332&PIN=123456789");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     // Send the request & save response to $resp
 
