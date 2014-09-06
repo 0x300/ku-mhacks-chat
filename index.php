@@ -6,6 +6,7 @@
     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     curl_setopt($curl, CURLOPT_AUTOREFERER, false);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_COOKIEJAR, "cookie.txt");
     
     // Send the request & save response to $resp
 
