@@ -22,7 +22,7 @@
     curl_setopt($curl, CURLOPT_POST, 2);
     curl_setopt($curl, CURLOPT_POSTFIELDS, "sid=holl4332&PIN=123456789");
     curl_setopt($curl, CURLOPT_COOKIESESSION, true);
-    curl_setopt($ch,CURLOPT_FOLLOWLOCATION,TRUE);
+    curl_setopt($curl,CURLOPT_FOLLOWLOCATION,TRUE);
     // Send the request & save response to $resp
 
     $resp = curl_exec($curl);
