@@ -25,7 +25,7 @@
       curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
       curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
       ob_start();
-      $result = curl_exec ($ch);
+      //$result = curl_exec ($ch);
       ob_end_clean();
       curl_close ($ch);
       /*
