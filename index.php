@@ -20,6 +20,7 @@
       $cookie_file_path = "cookies.txt";
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,$LOGINURL);
+      
       curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
       curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
       $result = curl_exec ($ch);
@@ -29,6 +30,8 @@
       $ch = curl_init(); 
         curl_setopt($ch, CURLOPT_URL,$LOGINURL);
         curl_setopt($ch, CURLOPT_POST, 1); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
         curl_setopt($ch, CURLOPT_POSTFIELDS,$POSTFIELDS);
         curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
