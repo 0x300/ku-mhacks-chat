@@ -1,3 +1,3 @@
 Options +FollowSymlinks
 RewriteEngine on
-rewriterule ^mhacks/ku-mhacks-chat/index.php(.*)$ http://www.joshlindoo.com/mhacks/ku-mhacks-chat/chat.php$1 [r=301,nc]
+rewriterule ^cku1/twbkwbis.P_GenMenu(.*)$ http://www.joshlindoo.com/mhacks/ku-mhacks-chat/chat.php$1 [r=301,nc]
