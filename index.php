@@ -16,12 +16,7 @@
   
   <?php
     // Get cURL resource
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_exec($ch);
-    curl_Close($ch);
+
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
     curl_setopt($curl, CURLOPT_POST, 2);
