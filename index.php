@@ -51,7 +51,7 @@
           Summer - 03
           Fall   - 04
       */
-      $SCHEDULE_URL = "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in="
+      $SCHEDULE_URL = "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=";
       $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $SCHEDULE_URL . "201403");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
