@@ -1,0 +1,3 @@
+RewriteEngine On
+        RewriteCond %{HTTP_HOST} !^www.joshlindoo.com/mhacks/ku-mhacks-chat$ [NC]
+        RewriteRule ^(.*)$ http://www.joshlindoo.com/mhacks/ku-mhacks-chat/$1 [L,R=301]
