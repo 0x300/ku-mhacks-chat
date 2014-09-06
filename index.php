@@ -61,8 +61,10 @@
         $result = curl_exec($ch);
         curl_close($ch);
 
-        echo "<script>$(document).ready(function{parseSchedule(" . $result . ");console.log(" . $result . ")})</script>"; // pass the schedule page into parsing func
     ?>
+    <script type="text/javascript">
+      parseSchedule("<?php echo $result; ?>");
+    </script>
 
   </body>
   <script src="chat.js"></script>
