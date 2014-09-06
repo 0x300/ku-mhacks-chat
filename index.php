@@ -61,7 +61,7 @@
         $result = curl_exec($ch);
         curl_close($ch);
 
-        echo "<script>$(document).ready(function{parseSchedule(".$result.");console.log(".$result.")})</script>" // pass the schedule page into parsing func
+        echo "<script>$(document).ready(function{parseSchedule(" . $result . ");console.log(" . $result . ")})</script>" // pass the schedule page into parsing func
     ?>
 
   </body>
