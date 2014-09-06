@@ -19,10 +19,10 @@
     $curl = curl_init();
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_RETURNTRANSFER => true,
         CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin',
         CURLOPT_POST => 1,
-        CURLOPT_POSTFIELDS => "sid=holl4332&pin=1234"
+        CURLOPT_POSTFIELDS => "sid=holl4332&PIN=1234"
     ));
     // Send the request & save response to $resp
     $resp = curl_exec($curl);
