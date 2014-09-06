@@ -15,8 +15,8 @@
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
   
   <?php
-    $req = new HttpRequest('http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin', HttpRequest::METH_POST);
-    echo $req;
+    $req = new HttpRequest('http://google.com', HttpRequest::METH_POST);
+    //echo $req;
     //$req->addPostFields(array('sid' => 'lind6441', 'PIN' => '1234'));
     //try {
     //    echo $req->send()->getBody();
