@@ -16,22 +16,16 @@
   
   <?php
     // Get cURL resource
-    $fields_string;
     $curl = curl_init();
-    $fields = array ('sid' => urlencode("holl4332"), 'PIN' => urlencode("123456789"));
-    foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-    rtrim($fields_string, '&');
     // Set some options - we are passing in a useragent too here
     curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
-    curl_setopt($curl, CURLOPT_POST, count($fields));
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $fields_string);
-    curl_setopt($curl, CURLOPT_COOKIEJAR, "cookie.txt");
-    curl_setopt($curl, CURLOPT_COOKIESESSION, true);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_POST, 2);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, "sid=holl4332&PIN=123456789");
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     // Send the request & save response to $resp
 
     $resp = curl_exec($curl);
+    var_dump($resp);
     // Close request to clear up some resources
     curl_close($curl);
 
