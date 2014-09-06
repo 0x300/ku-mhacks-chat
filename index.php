@@ -1,3 +1,6 @@
+<?php
+  setcookie("TESTID", "set", time()+3600, "/cku1", "jweb.kettering.edu", false, false);
+?>
 <html>
   <head>
     <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
@@ -16,7 +19,7 @@
   
   <?php
     // Get cURL resource
-    setcookie("TESTID", "set");
+
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
     curl_setopt($curl, CURLOPT_POST, 2);
