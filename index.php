@@ -1,21 +1,4 @@
- <?php
-    // Get cURL resource
 
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_AUTOREFERER, false);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl, CURLOPT_COOKIEJAR, "cookie.txt");
-    curl_setopt($curl, CURLOPT_COOKIEFILE, "cookie.txt");
-    
-    // Send the request & save response to $resp
-
-    $resp = curl_exec($curl);
-    echo $resp;
-    // Close request to clear up some resources
-    curl_close($curl);
-  ?>
 <html>
   <head>
     <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
@@ -33,7 +16,25 @@
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
   
 
+   <?php
+      // Get cURL resource
 
+      $curl = curl_init();
+      curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
+      curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+      curl_setopt($curl, CURLOPT_AUTOREFERER, false);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($curl, CURLOPT_COOKIEJAR, "cookie.txt");
+      curl_setopt($curl, CURLOPT_COOKIEFILE, "cookie.txt");
+      curl_setopt($curl, CURLOPT_POSTLINES, "sid=holl4332&PIN=21797721")
+      
+      // Send the request & save response to $resp
+
+      $resp = curl_exec($curl);
+      echo $resp;
+      // Close request to clear up some resources
+      curl_close($curl);
+    ?>
   </body>
   <script src="chat.js"></script>
 </html>
