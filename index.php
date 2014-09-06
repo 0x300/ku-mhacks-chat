@@ -9,7 +9,7 @@
     
     // Send the request & save response to $resp
 
-    //$resp = curl_exec($curl);
+    $resp = curl_exec($curl);
 
     // Close request to clear up some resources
     curl_close($curl);
