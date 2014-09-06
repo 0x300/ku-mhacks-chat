@@ -1,4 +1,4 @@
-<html> 
+<html>
   <head>
     <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
@@ -20,11 +20,12 @@
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_WWWLogin',
+        CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin',
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => "sid=holl4332&PIN=1234"
     ));
     // Send the request & save response to $resp
+    curl_exec($curl);
     $resp = curl_exec($curl);
     // Close request to clear up some resources
     curl_close($curl);
