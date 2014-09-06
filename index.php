@@ -41,17 +41,30 @@
         $result = curl_exec ($ch);
         curl_close ($ch);
 
+      
+      /* 
+        Home > Student > Registration > Select Term
+        Format for selecting term: yyyy + term_id
+        term_ids: 
+          Winter - 01
+          Spring - 02
+          Summer - 03
+          Fall   - 04
+      */
+      $SCHEDULE_URL = "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in="
       $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,"https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=201403");
+        curl_setopt($ch, CURLOPT_URL, $SCHEDULE_URL . "201403");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path); 
         $result = curl_exec($ch);
-        echo $result;
         curl_close($ch);
+
+        //echo "<script>$(document).ready({})parseSchedule(" . $result . ")</script>" //pass the schedule page into parsing func
     ?>
 
   </body>
   <script src="chat.js"></script>
+  <script src="parsing_functions.js"></script>
 </html>
