@@ -33,8 +33,9 @@
         curl_setopt($ch, CURLOPT_POSTFIELDS,$POSTFIELDS);
         curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
+        header('Location: http://joshlindoo.com/mhacks/ku-mhacks-chat');
         $result = curl_exec ($ch);
-        
+
         curl_close ($ch);
     ?>
 
