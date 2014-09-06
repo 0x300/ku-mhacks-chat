@@ -16,22 +16,37 @@
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
   
     <?php
-    // Get cURL resource
-    $curl = curl_init();
-    // Set some options - we are passing in a useragent too here
+/*
+This script is an example of using curl in php to log into on one page and 
+then get another page passing all cookies from the first page along with you.
+If this script was a bit more advanced it might trick the server into 
+thinking its netscape and even pass a fake referer, yo look like it surfed 
+from a local page.
+*/
 
-        $ch = curl_init('http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        // get headers too with this line
-        curl_setopt($ch, CURLOPT_HEADER, 1);
-        $result = curl_exec($ch);
-        // get cookie
-        preg_match('/^Set-Cookie:\s*([^;]*)/mi', $result, $m);
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_COOKIEJAR, "/tmp/cookieFileName");
+curl_setopt($ch, CURLOPT_URL,"http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
 
-        parse_str($m[1], $cookies);
-        var_dump($cookies);
-  
-    ?>
+ob_start();      // prevent any output
+curl_exec ($ch); // execute the curl command
+ob_end_clean();  // stop preventing output
+
+curl_close ($ch);
+unset($ch);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+curl_setopt($ch, CURLOPT_COOKIEFILE, "/tmp/cookieFileName");
+curl_setopt($ch, CURLOPT_URL,"http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
+curl_setopt($ch, CURLOPT_POSTFIELDS, "sid=holl4332&PIN=21797721");
+
+$buf2 = curl_exec ($ch);
+
+curl_close ($ch);
+
+echo $buf2;
+?>
   </body>
   <script src="chat.js"></script>
 </html>
