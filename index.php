@@ -18,14 +18,13 @@
     // Get cURL resource
     $curl = curl_init();
     // Set some options - we are passing in a useragent too here
-    curl_setopt_array($curl, array(
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin',
-        CURLOPT_POST => 1,
-        CURLOPT_POSTFIELDS => "sid=holl4332&PIN=1234"
-    ));
+    curl_setopt($curl, CURLOPT_URL, "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin");
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, "sid=holl4332&PIN=123456789");
+    curl_setopt($curl, CURLOPT_COOKIEJAR, "cookie.txt");
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     // Send the request & save response to $resp
-    curl_exec($curl);
+
     $resp = curl_exec($curl);
     // Close request to clear up some resources
     curl_close($curl);
