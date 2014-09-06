@@ -15,14 +15,20 @@
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
   
   <?php
-    $req = new HttpRequest('http://google.com', HttpRequest::METH_POST);
-    //echo $req;
-    //$req->addPostFields(array('sid' => 'lind6441', 'PIN' => '1234'));
-    //try {
-    //    echo $req->send()->getBody();
-    //} catch (HttpException $ex) {
-    //    echo $ex;
-    //}
+    // Get cURL resource
+    $curl = curl_init();
+    // Set some options - we are passing in a useragent too here
+    curl_setopt_array($curl, array(
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_URL => 'http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin',
+        //CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+    ));
+    // Send the request & save response to $resp
+    $resp = curl_exec($curl);
+    // Close request to clear up some resources
+    curl_close($curl);
+
+    echo $resp;
   ?>
 
   </body>
