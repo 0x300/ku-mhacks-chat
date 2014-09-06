@@ -40,6 +40,7 @@
         curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path);
         $result = curl_exec ($ch);
         curl_close ($ch);
+        echo $result;
     ?>
 
   </body>
