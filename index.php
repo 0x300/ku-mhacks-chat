@@ -16,6 +16,7 @@
   
   <?php
     // Get cURL resource
+    $fields_string;
     $curl = curl_init();
     $fields = array ('sid' => urlencode("holl4332"), 'PIN' => urlencode("123456789"));
     foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
