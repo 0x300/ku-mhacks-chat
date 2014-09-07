@@ -10,7 +10,7 @@ function chat() {
   var userRef =  new Firebase("https://sizzling-heat-3782.firebaseio.com/Users")
   userRef.once("value", function(snapshot){
     var user = snapshot.val();
-    if (user) {
+    if (user && user[userKey]) {
       classes = user[userKey].Classes;
       
       $.each(classes, function(currentClassIndex, currentClassValue){
