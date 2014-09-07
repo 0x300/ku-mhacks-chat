@@ -13,7 +13,8 @@
       </ul>
     </div>
     <form method="post" action="">
-      <input type="text" name="value">
+      <input type="text" name="username">
+      <input type="text" name="password">
       <input type="submit">
     </form>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='nameInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Name'>
@@ -32,10 +33,6 @@
   </script>
 
     <?php
-      echo $_POST['value'];
-    ?>
-
-    <?php
       $LOGINURL = "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin";
       $cookie_file_path = "cookies.txt";
       $ch = curl_init();
@@ -50,7 +47,7 @@
       curl_close ($ch);
       
       //$POSTFIELDS = "sid=holl4332&PIN=21797721";
-      $POSTFIELDS = "sid=".username."&PIN=".password;
+      $POSTFIELDS = "sid=".$_POST['username']."&PIN=".$_POST['password'];
 
       $ch = curl_init(); 
         curl_setopt($ch, CURLOPT_URL,$LOGINURL);
