@@ -8,6 +8,7 @@ function parseSchedule(data, done) {
 	var users;
 	var userFound = false;
 	var userID = 1;
+	var returnVal;
 	userRef.once("value", function(snapshot){
 		users = snapshot.val();
 		if (users) {
@@ -75,11 +76,14 @@ function parseSchedule(data, done) {
 					}
 
 					done && done();
-					return userRef.child(userID).val();
+					var tempRef = userRef.child(userID);
+					tempRef.once("value", function(snapshot){
+						returnVal =  tempRef.val();
+					});
 				});
 			}
 		});
 
 	});
-
+	return returnVal;
 }
