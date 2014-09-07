@@ -42,7 +42,7 @@ function parseSchedule(data) {
 				$.each(classes, function(index, classObject){
 					if(theClassName == classObject.ClassName)
 					{
-						userRef.child(userID).update({Classes : {ClassName : theClassName, classKey : index}});
+						userRef.child(userID)["Classes"].push({ClassName : theClassName, classKey : index});
 						classFound = true;
 					}
 				});
