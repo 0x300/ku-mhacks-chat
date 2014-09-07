@@ -48,10 +48,10 @@ function parseSchedule(data, done) {
 									classes2 = snapshot.val();
 
 									if (classes2) {
-										$.each(classes2, function(classObject, classObject2)
+										$.each(classes2, function(key2, classObject2)
 										{
 											console.log(classObject2.ClassName);
-											if(classObject2.ClassName == classObject.ClassName)
+											if(classObject2.ClassName == theClassName)
 											{
 												classExists = true;
 											}
