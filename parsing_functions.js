@@ -44,7 +44,7 @@ function parseSchedule(data) {
 					{
 						if(userRef.child(userID).child("Classes"))
 						{
-							userRef.child(userID).child("Classes").push({ClassName = theClassName, classKey = index});
+							userRef.child(userID).child("Classes").push({ClassName : theClassName, classKey : index});
 						}
 						else
 						{
