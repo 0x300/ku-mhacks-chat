@@ -53,7 +53,7 @@ function parseSchedule(data) {
 				if(classFound == false)
 				{
 					userRef.once("value", function(snapshot){
-						snapshot.val()[userID].Classes.push(ClassName : theClassName, classKey : classesRef.push({ClassName : theClassName}).name());
+						snapshot.val()[userID].Classes.push({ClassName : theClassName, classKey : classesRef.push({ClassName : theClassName}).name()});
 					});
 				}
 			});
