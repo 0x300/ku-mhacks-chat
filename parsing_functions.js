@@ -44,14 +44,20 @@ function parseSchedule(data, done) {
 						$.each(classes, function(key, classObject){
 							if(theClassName == classObject.ClassName)
 							{
-								$.each(userRef.child(userID + "/Classes"), function(theClassName, classObject2)
-								{
-									console.log(classObject2.ClassName);
-									if(classObject2.ClassName == theClassName)
-									{
-										classExists = true;
+								userRef.child(userID + "/Classes").once("value", function(snapshot){
+									classes2 = snapshot.val();
+									
+									if (classes) {
+										$.each(classes2, function(theClassName, classObject2)
+										{
+											console.log(classObject2.ClassName);
+											if(classObject2.ClassName == theClassName)
+											{
+												classExists = true;
+											}
+										});
 									}
-								});
+								}
 								if(!classExists)
 								{
 									userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
