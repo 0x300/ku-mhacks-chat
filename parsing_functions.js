@@ -30,11 +30,11 @@ function parseSchedule(data, done) {
 		//gets bolded class name, e.x.: Microcomputers I - CE 320 - 01
 		$(data).find('.captiontext').each(function()
 		{
-			var theClassName = $(this).html();
+			var parsedClassName = $(this).html();
 			var classes;
 			var classFound = false;
 			var classExists = false;
-			if(!(theClassName == "Scheduled Meeting Times"))
+			if(!(parsedClassName == "Scheduled Meeting Times"))
 			{
 
 				classesRef.once("value", function(snapshot){
@@ -42,28 +42,27 @@ function parseSchedule(data, done) {
 
 					if (classes) {
 						$.each(classes, function(key, classObject){
-							if(theClassName == classObject.ClassName)
+							if(parsedClassName == classObject.ClassName)
 							{
 								userRef.child(userID + "/Classes").once("value", function(snapshot){
 									classes2 = snapshot.val();
 
 									if (classes2) {
-										$.each(classes2, function(key2, classObject2)
+										$.each(classes2, function(key2, userClassObject)
 										{
-											console.log(classObject2.ClassName);
-											if(classObject2.ClassName == theClassName)
+											if(userClassObject.ClassName == parsedClassName)
 											{
 												classExists = true;
 											}
 										});
+									
 									}
+									if(!classExists)
+									{
+										userRef.child(userID + "/Classes").push({ClassName : parsedClassName, classKey : key});
+									}
+									classFound = true;
 								});
-								console.log(classExists);
-								if(!classExists)
-								{
-									userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
-								}
-								classFound = true;
 							}
 						});
 					}
@@ -71,8 +70,8 @@ function parseSchedule(data, done) {
 					if(classFound == false)
 					{
 						var classId = classesRef.push().name();
-						classesRef.child(classId).set({ClassName : theClassName});
-						userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : classId});
+						classesRef.child(classId).set({ClassName : parsedClassName});
+						userRef.child(userID + "/Classes").push({ClassName : parsedClassName, classKey : classId});
 					}
 
 					done && done();
