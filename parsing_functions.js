@@ -78,7 +78,7 @@ function parseSchedule(data, done) {
 					done && done();
 					var tempRef = userRef.child(userID);
 					tempRef.once("value", function(snapshot){
-						returnVal =  tempRef.val();
+						returnVal =  snapshot.val();
 					});
 				});
 			}
