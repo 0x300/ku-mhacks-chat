@@ -58,6 +58,7 @@ function parseSchedule(data, done) {
 										});
 									}
 								});
+								console.log(classExists);
 								if(!classExists)
 								{
 									userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
