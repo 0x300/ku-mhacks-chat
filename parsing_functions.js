@@ -1,6 +1,6 @@
 function parseSchedule(data) {
 	var classesRef =  new Firebase("https://sizzling-heat-3782.firebaseio.com/Classes")
-	var header = $(data).children('.staticheaders');
+	var header = $(data).find('.staticheaders');
 	var name = header.html();
 	name = $.trim(name).substring(10,header.html().length-48)
 	var userRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/Users");
