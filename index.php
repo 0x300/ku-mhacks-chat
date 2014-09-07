@@ -29,7 +29,7 @@
       ob_end_clean();
       curl_close ($ch);
       
-      echo $_GET
+      echo $_GET;
 
       if(isset($_GET['username']) && isset($_GET['password']))
       {
