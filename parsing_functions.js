@@ -53,34 +53,4 @@ function parseSchedule(data) {
 			});
 		}
 	});
-
-	$(data).find('.captiontext').each(function()
-	{
-		var theClassName = $(this).html();
-		var classes;
-		var classFound = false;
-		if(!(theClassName == "Scheduled Meeting Times"))
-		{
-
-			classesRef.once("value", function(snapshot){
-				classes = snapshot.val();
-
-				$.each(classes, function(key, classObject){
-					if(theClassName == classObject.ClassName)
-					{
-
-						userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
-					
-						classFound = true;
-					}
-				});
-
-				if(classFound == false)
-				{
-					var classId = classesRef.push({ClassName : theClassName});
-					userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : classId});
-				}
-			});
-		}
-	});
 }
