@@ -64,7 +64,7 @@
     ?>
     <script type="text/javascript">
       $(document).ready(function(){
-        parseSchedule("<?php echo htmlspecialchars($result); ?>");
+        console.log($("<?php echo htmlspecialchars($result); ?>"));
       });
     </script>
 
