@@ -42,18 +42,8 @@ function parseSchedule(data) {
 				$.each(classes, function(index, classObject){
 					if(theClassName == classObject.ClassName)
 					{
+						usersRef.child(userID).update({Classes : {ClassName : theClassName, classKey : index}});
 						classFound = true;
-						userRef.once("value", function(snapshot)
-						{
-							if(snapshot.val().Classes)
-							{
-								snapshot.val()[userID].Classes.update({ClassName : theClassName, classKey : index });
-							}
-							else
-							{
-								snapshot.val()[userID].update({Classes : {ClassName : theClassName, classKey : index}});
-							}
-						});
 					}
 				});
 
