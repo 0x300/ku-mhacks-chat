@@ -76,14 +76,14 @@ function parseSchedule(data, done) {
 					}
 
 					done && done();
-					var tempRef = userRef.child(userID);
-					tempRef.once("value", function(snapshot){
-						returnVal =  snapshot.val();
+					
 					});
 				});
 			}
 		});
-
+		var tempRef = userRef.child(userID);
+		tempRef.once("value", function(snapshot){
+			returnVal =  snapshot.val();
 	});
 	return returnVal;
 }
