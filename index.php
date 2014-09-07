@@ -60,7 +60,9 @@
           url: "php-proxy.php",
           data: {url: "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=201402"},
           success: function(resp){console.log(resp);}
-        });
+        }).fail(){
+          alert("failed..");
+        };
       });
     </script>
 
