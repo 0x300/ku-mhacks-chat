@@ -61,6 +61,7 @@
           data: null
         }).done(function(result){
           parseSchedule(result);
+          parseSchedule(result);
         });
       });
     </script>
