@@ -29,15 +29,11 @@
       ob_end_clean();
       curl_close ($ch);
 
-      if(isset($_GET['username']))
+      if(isset($_GET['username']) && isset($_GET['password']))
       {
-        echo 'username set';
+        echo 'username and password set';
         //$POSTFIELDS = "sid=holl4332&PIN=21797721";
         //$POSTFIELDS = "sid=".$_GET['username']."&PIN=".$_GET['password'];
-      }
-
-      if(isset($_GET['password'])) {
-        echo 'password set';
       }
 
       $ch = curl_init(); 
