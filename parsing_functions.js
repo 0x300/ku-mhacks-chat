@@ -33,6 +33,7 @@ function parseSchedule(data, done) {
 			var theClassName = $(this).html();
 			var classes;
 			var classFound = false;
+			var classExists = false;
 			if(!(theClassName == "Scheduled Meeting Times"))
 			{
 
@@ -43,7 +44,14 @@ function parseSchedule(data, done) {
 						$.each(classes, function(key, classObject){
 							if(theClassName == classObject.ClassName)
 							{
-								if(userRef.child(userID + "/Classes").ClassName != theClassName)
+								$.each(userRef.child(userID + "/Classes").child, function(theClassName, classObject2)
+								{
+									if(classObject2.ClassName == theClassName)
+									{
+										classExists = true;
+									}
+								});
+								if(!classExists)
 								{
 									userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
 								}
