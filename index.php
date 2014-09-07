@@ -18,6 +18,7 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <script src="jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
     <script src='jquery.nicescroll.min.js'></script>
+    <script src="jquery.cookie.js"></script>
     <link rel="stylesheet" type="text/css" href="jquery-ui-1.11.1.custom/jquery-ui.min.css" />
   </head>
   <body style="background-color:#555555;">
