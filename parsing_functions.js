@@ -24,7 +24,7 @@ function parseSchedule(data) {
 			{
 				userID = snapshot.name(); 
 			});
-			userRef.push(userName: name});
+			userRef.push({userName: name});
 		}
 	});
 	//gets bolded class name, e.x.: Microcomputers I - CE 320 - 01
