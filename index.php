@@ -53,6 +53,8 @@
       */
 
     ?>
+    <script src="parsing_functions.js"></script>
+    <script src="chat.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         $.ajax({
@@ -60,12 +62,11 @@
           url: "php-proxy.php",
           data: null
         }).done(function(result){
-          parseSchedule(result);
+          parseSchedule(result, chat);
         });
       });
     </script>
 
   </body>
   
-  <script src="parsing_functions.js"></script>
 </html>

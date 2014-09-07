@@ -1,4 +1,4 @@
-function parseSchedule(data) {
+function parseSchedule(data, done) {
 	var rootRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/");
 	var classesRef =  rootRef.child("Classes");
 	var header = $(data).find('.staticheaders');
