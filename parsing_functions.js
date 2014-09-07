@@ -46,8 +46,8 @@ function parseSchedule(data, done) {
 							{
 								userRef.child(userID + "/Classes").once("value", function(snapshot){
 									classes2 = snapshot.val();
-									
-									if (classes) {
+
+									if (classes2) {
 										$.each(classes2, function(theClassName, classObject2)
 										{
 											console.log(classObject2.ClassName);
