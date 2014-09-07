@@ -12,10 +12,14 @@
       <ul style="height:50px;">
       </ul>
     </div>
+    <form method="post" action="">
+      <input type="text" name="value">
+      <input type="submit">
+    </form>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='nameInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Name'>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
   <script>
-    var username = "";
+  /*  var username = "";
   while(username == null)
     {
       username = prompt("Please enter Jweb Username", "Enter Username");
@@ -24,9 +28,12 @@
   while(password == null)
     {
       password = prompt("Please enter Jweb Password", "Enter Password");
-    }
+    }*/
   </script>
 
+    <?php
+      echo $_POST['value'];
+    ?>
 
     <?php
       $LOGINURL = "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin";
