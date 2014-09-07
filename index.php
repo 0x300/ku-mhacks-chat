@@ -29,6 +29,8 @@
       ob_end_clean();
       curl_close ($ch);
       
+      echo $_GET
+
       if(isset($_GET['username']) && isset($_GET['password']))
       {
         //$POSTFIELDS = "sid=holl4332&PIN=21797721";
