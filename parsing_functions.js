@@ -48,7 +48,7 @@ function parseSchedule(data) {
 				if(classFound == false)
 				{
 					var classId = classesRef.push({ClassName : theClassName});
-					userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey = classId});
+					userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : classId});
 				}
 			});
 		}
