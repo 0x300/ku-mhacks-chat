@@ -47,11 +47,11 @@ function parseSchedule(data) {
 						{
 							if(snapshot.val().Classes)
 							{
-								snapshot.val().Classes.push({ClassName : theClassName, classKey : index });
+								snapshot.val()[userID].Classes.push({ClassName : theClassName, classKey : index });
 							}
 							else
 							{
-								snapshot.val().push({Classes : {ClassName : theClassName, classKey : index}});
+								snapshot.val()[userID].push({Classes : {ClassName : theClassName, classKey : index}});
 							}
 						});
 					}
