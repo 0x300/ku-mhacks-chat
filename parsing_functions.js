@@ -79,7 +79,7 @@ function parseSchedule(data, done) {
 					
 					
 				});
-			});
+			}
 		});
 		var tempRef = userRef.child(userID);
 		tempRef.once("value", function(snapshot){
