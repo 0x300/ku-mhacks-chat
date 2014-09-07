@@ -13,8 +13,8 @@
       </ul>
     </div>
     <form method="post" action="">
-      Username: <input type="text" name="username">
-      Password: <input type="password" name="password">
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password"><br>
       <input type="submit">
     </form>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='nameInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Name'>
@@ -63,13 +63,15 @@
     <script src="parsing_functions.js"></script>
     <script src="chat.js"></script>
     <script type="text/javascript">
+      var user;
       $(document).ready(function(){
         $.ajax({
           type: "POST",
           url: "php-proxy.php",
           data: null
         }).done(function(result){
-          parseSchedule(result, chat);
+          user = parseSchedule(result, chat);
+          chat(user);
         });
       });
     </script>

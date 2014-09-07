@@ -75,6 +75,7 @@ function parseSchedule(data, done) {
 					}
 
 					done && done();
+					return userRef.child(userID + "/userName");
 				});
 			}
 		});

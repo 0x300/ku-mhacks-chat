@@ -1,20 +1,19 @@
-function chat() {
-  var userKey = "User2";
+function chat(user) {
+  var userKey;
   var firstLoad = true;
   var myDataRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/");
   var classRef = myDataRef.child("Classes");
+  var userRef = myDataRef.child("Users");
   var currentClassRef;
   //Temporary...will need to be dynamic for classes
 
   var classes;
-  var userRef =  new Firebase("https://sizzling-heat-3782.firebaseio.com/Users")
   userRef.once("value", function(snapshot){
     var user = snapshot.val();
     if (user && user[userKey]) {
       classes = user[userKey].Classes;
       
       $.each(classes, function(currentClassIndex, currentClassValue){
-        
         $("<li><a id='class" + currentClassValue.classKey + "' href='#tabs-" + currentClassValue.classKey + "'>" + currentClassValue.ClassName + "</a></li>").appendTo($("#tabs > ul"));
         $("<div class='scrollingDiv' style='height:100px;' id='tabs-" + currentClassValue.classKey + "'></div>").appendTo("#tabs");
       });
@@ -58,9 +57,8 @@ function chat() {
   //This will change based on user who is logged in
   $('#messageInput').keypress(function (e) {
       if (e.keyCode == 13) {
-        var name = $('#nameInput').val();
         var text = $('#messageInput').val();
-        currentClassRef.push({name: name, text: text});
+        currentClassRef.push({name: user, text: text});
         $('#messageInput').val('');
       }
     });
