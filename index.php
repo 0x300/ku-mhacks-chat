@@ -60,7 +60,7 @@
           url: "php-proxy.php",
           data: null
         }).done(function(result){
-          console.log(result + "Test");
+          parseSchedule(result);
         });
       });
     </script>
