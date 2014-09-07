@@ -1,9 +1,10 @@
 function parseSchedule(data) {
-	var classesRef =  new Firebase("https://sizzling-heat-3782.firebaseio.com/Classes")
+	var rootRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/");
+	var classesRef =  rootRef.child("Classes");
 	var header = $(data).find('.staticheaders');
 	var name = header.html();
 	name = $.trim(name).substring(10,header.html().length-48)
-	var userRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/Users");
+	var userRef = rootRef.child("Users");
 	var users;
 	var userFound = false;
 	var userID = 1;
@@ -20,37 +21,41 @@ function parseSchedule(data) {
 
 		if(userFound == false)
 		{
-			userID = userRef.push({userName: name});
+			userID = userRef.push().name();
+			userRef.child(userID).set({userName: name});
 		}
-	});
-	//gets bolded class name, e.x.: Microcomputers I - CE 320 - 01
-	$(data).find('.captiontext').each(function()
-	{
-		var theClassName = $(this).html();
-		var classes;
-		var classFound = false;
-		if(!(theClassName == "Scheduled Meeting Times"))
+
+		//gets bolded class name, e.x.: Microcomputers I - CE 320 - 01
+		$(data).find('.captiontext').each(function()
 		{
+			var theClassName = $(this).html();
+			var classes;
+			var classFound = false;
+			if(!(theClassName == "Scheduled Meeting Times"))
+			{
 
-			classesRef.once("value", function(snapshot){
-				classes = snapshot.val();
+				classesRef.once("value", function(snapshot){
+					classes = snapshot.val();
 
-				$.each(classes, function(key, classObject){
-					if(theClassName == classObject.ClassName)
+					$.each(classes, function(key, classObject){
+						if(theClassName == classObject.ClassName)
+						{
+
+							userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
+						
+							classFound = true;
+						}
+					});
+
+					if(classFound == false)
 					{
-
-						userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
-					
-						classFound = true;
+						var classId = classesRef.push({ClassName : theClassName});
+						userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : classId});
 					}
 				});
-
-				if(classFound == false)
-				{
-					var classId = classesRef.push({ClassName : theClassName});
-					userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : classId});
-				}
-			});
-		}
+			}
+		});
+				
 	});
+
 }
