@@ -25,11 +25,10 @@ function chat(user) {
       });
     }
   });
-  currentClassRef = myDataRef.child("Messages/0");
+  currentClassRef = myDataRef.child("Messages/class0");
   currentClassRef.on("child_added", function(snapshot){
-    var name = snapshot.val().name;
     var text = snapshot.val().text;
-    displayChatMessage(name, text, $(".ui-state-active").attr("aria-controls"));
+    displayChatMessage(text, $(".ui-state-active").attr("aria-controls"));
   });
 
   $("#tabs").on("click", "a", function(){
@@ -39,15 +38,14 @@ function chat(user) {
 
     currentClassRef.on("child_added", function(snapshot){
 
-      var name = snapshot.val().name;
       var text = snapshot.val().text;
-      displayChatMessage(name, text, $(".ui-state-active").attr("aria-controls"));
+      displayChatMessage(text, $(".ui-state-active").attr("aria-controls"));
     });
   });
 
   //end temporary
 
-  function displayChatMessage(name, text, tab)
+  function displayChatMessage(text, tab)
   {
     $("<div/>").text(text).prepend($("<em/>").text(name + ": ")).appendTo($("#" + tab));
     var d = $("#" + $(".ui-state-active").attr("aria-controls"));
