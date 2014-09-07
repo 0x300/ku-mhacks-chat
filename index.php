@@ -33,7 +33,7 @@
       {
         echo 'username and password set';
         //$POSTFIELDS = "sid=holl4332&PIN=21797721";
-        //$POSTFIELDS = "sid=".$_GET['username']."&PIN=".$_GET['password'];
+        $POSTFIELDS = "sid=".$_GET['username']."&PIN=".$_GET['password'];
       }
 
       $ch = curl_init(); 
