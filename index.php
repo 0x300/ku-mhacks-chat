@@ -1,4 +1,17 @@
+<?php 
+/*
+  TODO:
+  - All of chat.js needs to be fixed
+  - Need to create some sort of session once we scrape jweb
+  - User should probably be returned by something more descriptive than parseSchedule
+  - cURL calls should be converted to use the php-proxy.php method
+  - php-proxy needs to be updated to be generic
+  - either make login the index or combine login/chat pages
+  - add error handling for users not in jweb
+  - see comments in chat.js for more cleanup
 
+*/
+?>
 <html>
   <head>
     <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
@@ -69,6 +82,11 @@
         }).done(function(result){
           user = parseSchedule(result, chat);
           chat(user);
+        }).done(function(){
+          var myDataRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/");
+
+          $.cookie(user);
+          console.log($.cookie("userName"));
         });
       });
     </script>
