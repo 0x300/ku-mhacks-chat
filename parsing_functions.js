@@ -10,14 +10,16 @@ function parseSchedule(data) {
 	var userID = 1;
 	userRef.once("value", function(snapshot){
 		users = snapshot.val();
-		$.each(users, function(key, userObject)
-		{
-			if(userObject.userName == name)
+		if (users) {
+			$.each(users, function(key, userObject)
 			{
-				userFound = true;
-				userID = key;
-			}
-		});
+				if(userObject.userName == name)
+				{
+					userFound = true;
+					userID = key;
+				}
+			});
+		}
 
 		if(userFound == false)
 		{
@@ -55,7 +57,7 @@ function parseSchedule(data) {
 				});
 			}
 		});
-				
+
 	});
 
 }
