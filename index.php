@@ -58,10 +58,9 @@
         $.ajax({
           type: "POST",
           url: "php-proxy.php",
-          data: {url: "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=201402"},
-          success: function(resp){console.log(resp);}
-        }).fail(function(){
-          alert("failed..");
+          data: {url: "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=201402"}
+        }).done(function(result){
+          console.log(result);
         });
       });
     </script>
