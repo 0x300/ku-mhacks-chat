@@ -61,6 +61,17 @@
           data: null
         }).done(function(result){
           parseSchedule(result);
+        });
+      });
+    </script>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $.ajax({
+          type: "POST",
+          url: "php-proxy.php",
+          data: null
+        }).done(function(result){
           parseSchedule(result);
         });
       });
