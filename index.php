@@ -64,7 +64,7 @@
     ?>
     <script type="text/javascript">
       $(document).ready(function(){
-        parseSchedule("<?php echo addslashes($result); ?>");
+        parseSchedule("<?php addslashes($result); ?>");
       });
     </script>
 
