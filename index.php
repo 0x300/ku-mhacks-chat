@@ -15,6 +15,7 @@
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='nameInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Name'>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
   
+    <script type="text/javascript">
     <?php
       $LOGINURL = "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin";
       $cookie_file_path = "cookies.txt";
@@ -52,9 +53,9 @@
           Fall   - 04
       */
 
-          echo $result;
-
     ?>
+      var result = "<?php echo $result ?>";
+    </script>
     <script type="text/javascript">
       $(document).ready(function(){
         $.ajax({
