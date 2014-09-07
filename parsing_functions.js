@@ -51,7 +51,7 @@ function parseSchedule(data, done) {
 										$.each(classes2, function(theClassName, classObject2)
 										{
 											console.log(classObject2.ClassName);
-											if(classObject2.ClassName == theClassName)
+											if(classObject2.ClassName == theClassName.child(ClassName).name())
 											{
 												classExists = true;
 											}
