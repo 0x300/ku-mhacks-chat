@@ -14,7 +14,7 @@ function parseSchedule(data) {
 			if(userObject.userName == name)
 			{
 				userFound = true;
-				userID = userObject.name();
+				userID = index;
 			}
 		});
 
@@ -45,7 +45,7 @@ function parseSchedule(data) {
 						classFound = true;
 						userRef.once("value", function(snapshot)
 						{
-							snapshot.val().Classes.push({ClassName : theClassName, classKey : classObject.name() });
+							snapshot.val().Classes.push({ClassName : theClassName, classKey : index });
 						});
 					}
 				});
