@@ -31,7 +31,6 @@
 
       if(isset($_POST['username']) && isset($_POST['password']))
       {
-        echo 'username and password set';
         $POSTFIELDS = "sid=".$_POST['username']."&PIN=".$_POST['password'];
       }
 
