@@ -51,20 +51,16 @@
           Summer - 03
           Fall   - 04
       */
-      $SCHEDULE_URL = "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=";
-      $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $SCHEDULE_URL . "201403");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie_file_path);
-        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie_file_path); 
-        $result = curl_exec($ch);
-        curl_close($ch);
 
     ?>
     <script type="text/javascript">
       $(document).ready(function(){
-        console.log($("<?php echo htmlspecialchars($result); ?>"));
+        $.ajax({
+          type: "POST",
+          url: "php-proxy.php",
+          data: {url: "https://jweb.kettering.edu/cku1/bwskfshd.P_CrseSchdDetl?term_in=201402"},
+          success: function(resp){console.log(resp);}
+        });
       });
     </script>
 
