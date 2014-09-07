@@ -57,6 +57,8 @@ function parseSchedule(data, done) {
 						classesRef.child(classId).set({ClassName : theClassName});
 						userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : classId});
 					}
+
+					done && done();
 				});
 			}
 		});
