@@ -47,11 +47,11 @@ function parseSchedule(data) {
 						{
 							if(snapshot.val().Classes)
 							{
-								snapshot.val()[userID].Classes.push({ClassName : theClassName, classKey : index });
+								snapshot.val()[userID].Classes.update({ClassName : theClassName, classKey : index });
 							}
 							else
 							{
-								snapshot.val()[userID].push({Classes : {ClassName : theClassName, classKey : index}});
+								snapshot.val()[userID].update({Classes : {ClassName : theClassName, classKey : index}});
 							}
 						});
 					}
@@ -60,7 +60,7 @@ function parseSchedule(data) {
 				if(classFound == false)
 				{
 					userRef.once("value", function(snapshot){
-						snapshot.val()[userID].Classes.push({ClassName : theClassName, classKey : classesRef.push({ClassName : theClassName}).name()});
+						snapshot.val()[userID].Classes.update({ClassName : theClassName, classKey : classesRef.push({ClassName : theClassName}).name()});
 					});
 				}
 			});
