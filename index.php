@@ -66,6 +66,6 @@
     </script>
 
   </body>
-  <script src="chat.js"></script>
+  
   <script src="parsing_functions.js"></script>
 </html>
