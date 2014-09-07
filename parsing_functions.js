@@ -6,7 +6,7 @@ function parseSchedule(data) {
 	var userRef = new Firebase("https://sizzling-heat-3782.firebaseio.com/Users");
 	var users;
 	var userFound = false;
-	var userID;
+	var userID = 1;
 	userRef.once("value", function(snapshot){
 		users = snapshot.val();
 		$.each(users, function(key, userObject)
