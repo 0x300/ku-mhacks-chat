@@ -9,22 +9,18 @@ function parseSchedule(data) {
 	var userID;
 	userRef.once("value", function(snapshot){
 		users = snapshot.val();
-		$.each(users, function(index, userObject)
+		$.each(users, function(key, userObject)
 		{
 			if(userObject.userName == name)
 			{
 				userFound = true;
-				userID = index;
+				userID = key;
 			}
 		});
 
 		if(userFound == false)
 		{
-			userRef.on("child_added", function(snapshot)
-			{
-				userID = snapshot.name(); 
-			});
-			userRef.push({userName: name});
+			userID = userRef.push({userName: name});
 		}
 	});
 	//gets bolded class name, e.x.: Microcomputers I - CE 320 - 01
@@ -39,26 +35,20 @@ function parseSchedule(data) {
 			classesRef.once("value", function(snapshot){
 				classes = snapshot.val();
 
-				$.each(classes, function(index, classObject){
+				$.each(classes, function(key, classObject){
 					if(theClassName == classObject.ClassName)
 					{
-						if(userRef.child(userID).child("Classes"))
-						{
-							userRef.child(userID).child("Classes").push({ClassName : theClassName, classKey : index});
-						}
-						else
-						{
-							userRef.child(userID).set({Classes : {ClassName : theClassName, classKey : index}});
-						}
+
+						userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey : key});
+					
 						classFound = true;
 					}
 				});
 
 				if(classFound == false)
 				{
-					userRef.once("value", function(snapshot){
-						snapshot.val()[userID].Classes.update({ClassName : theClassName, classKey : classesRef.push({ClassName : theClassName}).name()});
-					});
+					var classId = classesRef.push({ClassName : theClassName});
+					userRef.child(userID + "/Classes").push({ClassName : theClassName, classKey = classId});
 				}
 			});
 		}
