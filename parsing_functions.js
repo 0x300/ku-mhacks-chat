@@ -24,7 +24,7 @@ function parseSchedule(data) {
 			{
 				userID = snapshot.name(); 
 			});
-			userRef.push({Classes : {}, userName: name});
+			userRef.push(userName: name});
 		}
 	});
 	//gets bolded class name, e.x.: Microcomputers I - CE 320 - 01
@@ -45,7 +45,14 @@ function parseSchedule(data) {
 						classFound = true;
 						userRef.once("value", function(snapshot)
 						{
-							snapshot.val().Classes.push({ClassName : theClassName, classKey : index });
+							if(snapshot.val().Classes)
+							{
+								snapshot.val().Classes.push({ClassName : theClassName, classKey : index });
+							}
+							else
+							{
+								snapshot.val().push({Classes : {ClassName : theClassName, classKey : index}});
+							}
 						});
 					}
 				});
