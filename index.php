@@ -14,7 +14,20 @@
     </div>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='nameInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Name'>
     <input style="color:#d9d9d9; background-color:#111; border-color:#111; text-align:left;" type='text' id='messageInput' class="ui-autocomplete-input ui-button ui-corners-all" placeholder='Message'>
-  
+  <script>
+    var username = "";
+  while(username == null)
+    {
+      username = prompt("Please enter Jweb Username", "Enter Username");
+    }
+    var password = "";
+  while(password == null)
+    {
+      password = prompt("Please enter Jweb Password", "Enter Password");
+    }
+  </script>
+
+
     <?php
       $LOGINURL = "http://jweb.kettering.edu/cku1/twbkwbis.P_ValLogin";
       $cookie_file_path = "cookies.txt";
@@ -29,7 +42,9 @@
       ob_end_clean();
       curl_close ($ch);
       
-      $POSTFIELDS = "sid=holl4332&PIN=21797721";
+      //$POSTFIELDS = "sid=holl4332&PIN=21797721";
+      $POSTFIELDS = "sid=".username."&PIN=".password;
+
       $ch = curl_init(); 
         curl_setopt($ch, CURLOPT_URL,$LOGINURL);
         curl_setopt($ch, CURLOPT_POST, 1); 
