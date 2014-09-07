@@ -9,7 +9,7 @@ function parseSchedule(data) {
 	var userID;
 	userRef.once("value", function(snapshot){
 		users = snapshot.val();
-		.each(users, function(index, userObject)
+		$.each(users, function(index, userObject)
 		{
 			if(userObject.userName == name)
 			{
